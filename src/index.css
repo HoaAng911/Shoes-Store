@@ -28,7 +28,3 @@ a:hover {
     background-color: #ffffff;
   }
 }
-/* src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
