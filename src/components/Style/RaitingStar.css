@@ -1,0 +1,18 @@
+.star {
+  font-size: 20px;
+  color: #ddd;
+}
+
+.filled {
+  color: #ffb400;
+}
+
+.half-filled {
+  color: linear-gradient(to right, #ffb400 50%, #ddd 50%);
+}
+
+.rating-number {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #888;
+}

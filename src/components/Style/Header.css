@@ -1,0 +1,186 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  margin-right: 8rem;
+}
+
+/* Dropdown container */
+.dropdown-container {
+  position: relative;
+  margin: 0 1rem;
+}
+
+/* Dropdown header */
+.dropdown-header {
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.dropdown-header:hover {
+  color: #007bff;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Danh sách trong dropdown */
+.dropdown-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-content li:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* Navigation */
+nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Search form */
+nav form {
+  display: flex;
+  align-items: center;
+}
+
+nav input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: #0056b3;
+}
+
+/* Links trong nav */
+nav a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav a:hover {
+  color: #666;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .logo img {
+    height: 40px;
+    margin-right: 1rem;
+  }
+
+  .dropdown-header {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  nav {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .dropdown-container {
+    order: 3;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .dropdown-content {
+    width: 100%;
+  }
+
+  nav form {
+    display: none;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .dropdown-header {
+    font-size: 0.8rem;
+  }
+}

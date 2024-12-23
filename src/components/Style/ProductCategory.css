@@ -1,0 +1,84 @@
+/* Overall container for the product list */
+.product-list {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Section for each product category */
+.category-section {
+  margin-bottom: 40px;
+}
+
+/* Heading for each category */
+.category-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Grid layout for the products */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Styling for each individual product item */
+.product-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect to slightly enlarge the product card */
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Image styling */
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the product image */
+.product-item:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Styling for the product details section */
+.product-details {
+  padding: 15px;
+}
+
+.product-details h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Price styling */
+.price {
+  font-size: 16px;
+  color: #f44336;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
