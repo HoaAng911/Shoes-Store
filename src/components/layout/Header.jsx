@@ -4,9 +4,9 @@ import "../Style/Header.css";
 import Logo from "../../assets/images/logo.png";
 import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const DropdownMenu = ({ title, items }) => {
-  // Fixed prop name: items
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -15,20 +15,28 @@ const DropdownMenu = ({ title, items }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="dropdown-header">{title}</h1>
+      <NavLink
+        to={
+          title === "GIÀY NAM"
+            ? "/men"
+            : title === "GIÀY NỮ"
+            ? "/women"
+            : title === "BALO & TÚI"
+            ? "/bags"
+            : "/"
+        }
+        className="dropdown-header"
+      >
+        {title}
+      </NavLink>
       {isOpen && (
         <div className="dropdown-content">
           <ul>
-            {items.map(
-              (
-                item,
-                index // Corrected: Using `items`
-              ) => (
-                <li key={index}>
-                  <a href={item.link}>{item.label}</a>
-                </li>
-              )
-            )}
+            {items.map((item, index) => (
+              <li key={index}>
+                <NavLink to={item.link}>{item.label}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       )}
@@ -41,49 +49,41 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Handle search logic here
   };
 
   const menItems = [
-    { label: "GIÀY THỂ THAO NAM", link: "/men/sneakers" },
-    { label: "SANDAL", link: "/men/boots" },
-    { label: "DÉP NAM", link: "/men/sandals" },
-    { label: "GIÀY TÂY & SLIP ON", link: "/men/sports" },
-    { label: "BOOT NAM & OXFORD", link: "/men/formal" },
+    { label: "GIÀY THỂ THAO NAM", link: "/men" },
+    { label: "SANDAL", link: "/men" },
+    { label: "DÉP NAM", link: "/men" },
+    { label: "GIÀY TÂY & SLIP ON", link: "/men" },
+    { label: "BOOT NAM & OXFORD", link: "/men" },
   ];
 
   const womenItems = [
-    { label: "GIÀY CAO GÓT", link: "/women/heels" },
-    { label: "GIÀY THỂ THAO", link: "/women/sneakers" },
-    { label: "SANDAL NỮ", link: "/women/sandals" },
-    { label: "DÉP SỤC", link: "/women/slides" },
-    { label: "BOOT & OXFORD", link: "/women/boots" },
-    { label: "GIÀY BÚP BÊ & MỌI", link: "/women/flats" },
+    { label: "GIÀY CAO GÓT", link: "/women" },
+    { label: "GIÀY THỂ THAO", link: "/women" },
+    { label: "SANDAL NỮ", link: "/women" },
+    { label: "DÉP SỤC", link: "/women" },
+    { label: "BOOT & OXFORD", link: "/women" },
+    { label: "GIÀY BÚP BÊ & MỌI", link: "/women" },
   ];
 
   const bagItems = [
-    { label: "Balo laptop, du lịch, thời trang", link: "/bag/balo&bag" },
-    { label: "Túi đeo chéo", link: "/bag/crossbodybag" },
-  ];
-  const accessoriesItems = [
-    { label: "Vớ", link: "/accessories/socks" },
-    { label: "Chai vệ sinh giày", link: "/accessories/cleaning-kit" },
-    { label: "Dây giày", link: "/accessories/shoelaces" },
-    { label: "Đế lót", link: "/accessories/insoles" },
+    { label: "Balo laptop, du lịch, thời trang", link: "/bags" },
+    { label: "Túi đeo chéo", link: "/bags" },
   ];
 
   return (
     <div className="container">
       <div className="logo">
-        <a href="/">
+        <NavLink to="/">
           <img src={Logo} alt="Logo" />
-        </a>
+        </NavLink>
       </div>
 
       <DropdownMenu title="GIÀY NAM" items={menItems} />
       <DropdownMenu title="GIÀY NỮ" items={womenItems} />
       <DropdownMenu title="BALO & TÚI" items={bagItems} />
-      <DropdownMenu title="PHỤ KIỆN" items={accessoriesItems} />
 
       <nav>
         <form onSubmit={handleSearch}>
@@ -98,13 +98,13 @@ const Header = () => {
           </button>
         </form>
 
-        <a href="/auth">
+        <NavLink to="/auth">
           <FontAwesomeIcon icon={faUser} /> Login
-        </a>
+        </NavLink>
 
-        <a href="/cart">
+        <NavLink to="/cart">
           <FontAwesomeIcon icon={faShoppingCart} /> Cart
-        </a>
+        </NavLink>
       </nav>
     </div>
   );

@@ -184,3 +184,26 @@ nav a:hover {
     font-size: 0.8rem;
   }
 }
+
+/* Add these new styles */
+.container nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-header {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hover effect if you want */
+.container nav a:hover,
+.dropdown-header:hover,
+.dropdown-content a:hover {
+  color: #your-hover-color; /* Replace with your desired hover color */
+}

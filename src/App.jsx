@@ -7,6 +7,9 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderPage from "./pages/OrderPage";
 import ProductDetail from "./pages/ProductDetail";
+import MenProducts from "./components/features/products/MenProduct";
+import WomenProducts from "./components/features/products/WomenProduct";
+import BagProducts from "./components/features/products/BagProduct";
 import AuthPage from "./pages/AuthPage";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -19,12 +22,15 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/products/:category" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order" element={<OrderPage />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/men" element={<MenProducts />} />
+            <Route path="/women" element={<WomenProducts />} />
+            <Route path="/bags" element={<BagProducts />} />
           </Routes>
         </main>
         <Footer />
