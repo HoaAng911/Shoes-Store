@@ -1,16 +1,30 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSelectedProduct } from "../../../store/slice/productSlice";
 import "../../../Style/ProductPage.css";
 
 const BagProducts = () => {
   const { bags } = useSelector((state) => state.products);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleProductClick = (product) => {
+    dispatch(setSelectedProduct(product));
+    navigate(`/product/${product.id}`);
+  };
 
   return (
     <div className="pp-container">
       <h1 className="pp-title">Bags Collection</h1>
       <div className="pp-grid">
         {bags.map((product) => (
-          <div key={product.id} className="pp-card">
+          <div
+            key={product.id}
+            className="pp-card"
+            onClick={() => handleProductClick(product)}
+            style={{ cursor: "pointer" }}
+          >
             <img src={product.image} alt={product.name} className="pp-image" />
             <div className="pp-info">
               <p className="pp-brand">{product.brand}</p>

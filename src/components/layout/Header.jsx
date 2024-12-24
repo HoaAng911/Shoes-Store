@@ -99,11 +99,11 @@ const Header = () => {
         </form>
 
         <NavLink to="/auth">
-          <FontAwesomeIcon icon={faUser} /> Login
+          <FontAwesomeIcon icon={faUser} />
         </NavLink>
 
         <NavLink to="/cart">
-          <FontAwesomeIcon icon={faShoppingCart} /> Cart
+          <FontAwesomeIcon icon={faShoppingCart} />
         </NavLink>
       </nav>
     </div>

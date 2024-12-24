@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Login from "../components/features/auth/Login";
 import Signup from "../components/features/auth/Singup";
 import "../Style/AuthPage.css";
-
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const handleGoogleLogin = () => {
     // Xử lý đăng nhập Google
     console.log("Google login");
@@ -15,6 +16,9 @@ function AuthPage() {
     // Xử lý đăng nhập Facebook
     console.log("Facebook login");
   };
+  if (isAuthenticated) {
+    return <Navigate to="/user" replace />;
+  }
 
   return (
     <div className="auth-page">

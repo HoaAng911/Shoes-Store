@@ -5,11 +5,13 @@ import {
   loginSuccess,
   loginFailure,
 } from "../../../store/slice/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [validationErrors, setValidationErrors] = useState({});
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.auth);
 
   const validateForm = () => {
@@ -33,6 +35,7 @@ function Login() {
       const response = await fakeAuthApi(formData.email, formData.password);
       dispatch(loginSuccess({ email: formData.email, name: response.name }));
       alert("Đăng nhập thành công!");
+      navigate("/");
     } catch (err) {
       dispatch(loginFailure(err.message));
     }
