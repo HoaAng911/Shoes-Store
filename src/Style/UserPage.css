@@ -1,0 +1,115 @@
+.user-page-container {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.user-profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-avatar-container input {
+  margin-top: 10px;
+}
+
+.user-avatar-error-message {
+  color: red;
+  font-size: 14px;
+}
+
+.user-details-form {
+  margin-bottom: 20px;
+}
+
+.form-groupus {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-groupus label {
+  width: 150px;
+  font-weight: bold;
+}
+
+.form-groupus input {
+  width: 60%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.gender-radio-group {
+  display: flex;
+}
+
+.gender-radio-group label {
+  font-weight: normal;
+}
+
+.shipping-info-container {
+  margin-top: 30px;
+}
+
+.shipping-info-container h2 {
+  margin-bottom: 20px;
+}
+
+.user-action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.action-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-info-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.view-orders-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.action-button:hover {
+  opacity: 0.8;
+}

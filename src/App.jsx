@@ -10,6 +10,7 @@ import ProductDetail from "./pages/ProductDetail";
 import MenProducts from "./components/features/products/MenProduct";
 import WomenProducts from "./components/features/products/WomenProduct";
 import BagProducts from "./components/features/products/BagProduct";
+import UserPage from "./pages/UserPage";
 import AuthPage from "./pages/AuthPage";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/men" element={<MenProducts />} />
             <Route path="/women" element={<WomenProducts />} />
             <Route path="/bags" element={<BagProducts />} />
+            <Route path="/user" element={<UserPage />} />
           </Routes>
         </main>
         <Footer />

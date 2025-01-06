@@ -1,7 +1,7 @@
 /* Container chính */
 .pp-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
 }
 
@@ -63,15 +63,15 @@
 .pp-price {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #e02323;
 }
 
 .pp-brand {
-  font-size: 14px;
-  color: #666;
+  color: #777;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  margin-bottom: 4px;
-  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
 }
 
 /* Responsive */
@@ -99,4 +99,34 @@
   .pp-section-title {
     font-size: 20px;
   }
+}
+
+.pp-add-to-cart {
+  width: 80%;
+  padding: 0.8rem;
+  margin: 1rem auto;
+  display: block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.pp-card:hover .pp-add-to-cart {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pp-add-to-cart:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.pp-add-to-cart:active {
+  transform: translateY(0);
+  box-shadow: none;
 }

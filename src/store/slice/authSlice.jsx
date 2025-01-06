@@ -11,13 +11,13 @@ const validateRegistration = (payload) => {
   const errors = {};
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!payload?.email) errors.email = "Email is required";
+  if (!payload?.email) errors.email = "Email là bắt buộc";
   else if (!emailRegex.test(payload.email))
-    errors.email = "Invalid email format";
+    errors.email = "Định dạng email không hợp lệ";
 
-  if (!payload?.password) errors.password = "Password is required";
+  if (!payload?.password) errors.password = "Mật khẩu là bắt buộc";
   else if (payload.password.length < 6)
-    errors.password = "Password must be at least 6 characters";
+    errors.password = "Mật khẩu phải có ít nhất 6 ký tự";
 
   return errors;
 };
@@ -28,7 +28,7 @@ const authSlice = createSlice({
   reducers: {
     loginStart: (state) => {
       state.loading = true;
-      state.error = null; // Reset error
+      state.error = null; // Đặt lại lỗi
     },
     loginSuccess: (state, action) => {
       state.loading = false;
@@ -37,16 +37,16 @@ const authSlice = createSlice({
     },
     loginFailure: (state, action) => {
       state.loading = false;
-      state.error = action.payload || "Invalid credentials";
+      state.error = action.payload || "Thông tin đăng nhập không hợp lệ";
       state.isAuthenticated = false;
     },
     registerStart: (state, action) => {
       const errors = validateRegistration(action.payload);
       if (Object.keys(errors).length > 0) {
-        state.error = errors;
+        state.error = errors; // Lưu lỗi cụ thể
+        state.loading = false;
         return;
       }
-
       state.loading = true;
       state.error = null;
     },
@@ -58,7 +58,7 @@ const authSlice = createSlice({
     },
     registerFailure: (state, action) => {
       state.loading = false;
-      state.error = action.payload || "Registration failed";
+      state.error = action.payload || "Đăng ký không thành công";
     },
     logoutStart: (state) => {
       state.loading = true;
@@ -70,7 +70,7 @@ const authSlice = createSlice({
     },
     logoutFailure: (state, action) => {
       state.loading = false;
-      state.error = action.payload || "Logout failed";
+      state.error = action.payload || "Đăng xuất không thành công";
     },
   },
 });
@@ -86,4 +86,5 @@ export const {
   logoutSuccess,
   logoutFailure,
 } = authSlice.actions;
+
 export default authSlice.reducer;

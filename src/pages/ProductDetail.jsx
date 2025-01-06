@@ -1,13 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Style/ProductDetail.css";
 import { addToCart } from "../store/slice/cartSlice";
 
 function ProductDetail() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Fetch product data from Redux store
   const selectedProduct = useSelector(
     (state) => state.products.selectedProduct
   );
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Check login state
+
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -17,6 +23,12 @@ function ProductDetail() {
   }
 
   const handleAddToCart = () => {
+    if (!isAuthenticated) {
+      alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!");
+      navigate("/auth"); // Redirect to login page if not logged in
+      return;
+    }
+
     if (!selectedSize || !selectedColor) {
       alert("Vui lòng chọn kích thước và màu sắc");
       return;

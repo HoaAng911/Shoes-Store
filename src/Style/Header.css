@@ -1,3 +1,13 @@
+/* Reset styles */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Container styles */
 .container {
   display: flex;
   align-items: center;
@@ -7,8 +17,16 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
 }
 
+body:hover .container {
+  visibility: visible;
+  opacity: 1;
+}
+/* Logo styles */
 .logo {
   margin-right: 40px;
 }
@@ -29,7 +47,7 @@
   font-weight: 500;
   padding: 10px 0;
   border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
+  transition: border-bottom-color 0.3s ease;
 }
 
 .dropdown-header:hover {
@@ -99,14 +117,12 @@ nav button {
   color: #666;
 }
 
-/* NavLink styles */
 nav a {
   color: #333;
   display: flex;
   align-items: center;
   gap: 5px;
   font-weight: 500;
-  text-decoration: none; /* Remove underlines from all links */
   transition: color 0.3s ease;
 }
 
@@ -114,16 +130,6 @@ nav a:hover {
   color: #666;
 }
 
-/* Reset all links globally */
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none; /* Ensure no underline on hover */
-}
-
-/* Active state for navigation links */
 .active {
   color: #000;
   font-weight: 600;
